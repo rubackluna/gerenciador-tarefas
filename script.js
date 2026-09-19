@@ -174,3 +174,14 @@ function escaparHTML(texto) {
     div.textContent = texto;
     return div.innerHTML;
 }
+
+// Detecta preferência do sistema
+function aplicarTemaEscuro() {
+    const prefereEscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefereEscuro) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+}
+
+// Executa ao carregar
+document.addEventListener('DOMContentLoaded', aplicarTemaEscuro);
