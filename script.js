@@ -38,9 +38,9 @@ function adicionarTarefa() {
 
     // Validação
     if (texto === '') {
-        alert('Por favor, digite uma tarefa!');
-        inputTarefa.focus();
-        return;
+    alert('Por favor, digite uma tarefa antes de adicionar!');  // Mudou
+    inputTarefa.focus();
+    return;
     }
 
     // Criar objeto de tarefa
