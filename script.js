@@ -185,3 +185,51 @@ function aplicarTemaEscuro() {
 
 // Executa ao carregar
 document.addEventListener('DOMContentLoaded', aplicarTemaEscuro);
+
+let filtroAtivo = 'todas';
+
+function aplicarFiltro(tipo) {
+    filtroAtivo = tipo;
+    const botoes = document.querySelectorAll('.btn-filtro');
+    botoes.forEach(btn => btn.classList.remove('ativo'));
+    event.target.classList.add('ativo');
+    renderizarLista();
+}
+
+// Modificar função renderizarLista() para considerar filtros
+function renderizarLista() {
+    listaTarefas.innerHTML = '';
+    
+    let tarefasParaMostrar = tarefas;
+    
+    if (filtroAtivo === 'concluidas') {
+        tarefasParaMostrar = tarefas.filter(t => t.concluida);
+    } else if (filtroAtivo === 'pendentes') {
+        tarefasParaMostrar = tarefas.filter(t => !t.concluida);
+    }
+
+    if (tarefasParaMostrar.length === 0) {
+        mensagemVazia.style.display = 'block';
+        return;
+    }
+
+    mensagemVazia.style.display = 'none';
+
+    tarefasParaMostrar.forEach(tarefa => {
+        const li = document.createElement('li');
+        li.className = `tarefa ${tarefa.concluida ? 'concluida' : ''}`;
+
+        li.innerHTML = `
+            <input 
+                type="checkbox" 
+                class="checkbox" 
+                ${tarefa.concluida ? 'checked' : ''}
+                onchange="marcarConcluida(${tarefa.id})"
+            >
+            <span class="texto-tarefa">${escaparHTML(tarefa.texto)}</span>
+            <button class="btn-remover" onclick="removerTarefa(${tarefa.id})">X</button>
+        `;
+
+        listaTarefas.appendChild(li);
+    });
+}
