@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Minhas Tarefas</h1>
+            <p>Organize seu dia de forma simples</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <input 
+                    type="text" 
+                    id="inputTarefa" 
+                    placeholder="Digite uma nova tarefa..."
+                    class="input-tarefa"
+                >
+                <button id="btnAdicionar" class="btn-adicionar">Adicionar</button>
+            </div>
+
+            <div class="stats">
+                <span>Total: <strong id="totalTarefas">0</strong></span>
+                <span>Concluídas: <strong id="tarefasConcluidas">0</strong></span>
+            </div>
+
+            <ul id="listaTarefas" class="lista-tarefas">
+                <!-- As tarefas serão inseridas aqui pelo JavaScript -->
+            </ul>
+
+            <div id="mensagemVazia" class="mensagem-vazia">
+                <p>Nenhuma tarefa ainda. Adicione uma para começar! 🚀</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Desenvolvido com ❤️ para aprender Git e GitHub</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

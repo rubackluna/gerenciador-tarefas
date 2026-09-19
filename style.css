@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-primaria: #4f46e5;
+    --cor-secundaria: #06b6d4;
+    --cor-sucesso: #10b981;
+    --cor-erro: #ef4444;
+    --cor-fundo: #f9fafb;
+    --cor-texto: #1f2937;
+    --cor-borda: #e5e7eb;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+main {
+    padding: 25px;
+}
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-tarefa {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.input-tarefa:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+}
+
+.btn-adicionar {
+    padding: 12px 20px;
+    background: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-adicionar:hover {
+    background: #4338ca;
+}
+
+.btn-adicionar:active {
+    transform: scale(0.98);
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--cor-borda);
+    font-size: 14px;
+    color: var(--cor-texto);
+}
+
+.stats span {
+    display: flex;
+    gap: 5px;
+}
+
+.stats strong {
+    color: var(--cor-primaria);
+    font-weight: 700;
+}
+
+.lista-tarefas {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.tarefa {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: var(--cor-fundo);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tarefa:hover {
+    background: #f3f4f6;
+    transform: translateX(5px);
+}
+
+.tarefa.concluida {
+    opacity: 0.6;
+}
+
+.tarefa.concluida .texto-tarefa {
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    cursor: pointer;
+    accent-color: var(--cor-sucesso);
+}
+
+.texto-tarefa {
+    flex: 1;
+    color: var(--cor-texto);
+    font-size: 15px;
+    word-break: break-word;
+}
+
+.btn-remover {
+    background: var(--cor-erro);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-remover:hover {
+    background: #dc2626;
+}
+
+.mensagem-vazia {
+    text-align: center;
+    padding: 40px 20px;
+    color: #9ca3af;
+}
+
+.mensagem-vazia p {
+    font-size: 16px;
+}
+
+footer {
+    background: var(--cor-fundo);
+    padding: 15px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 12px;
+    border-top: 1px solid var(--cor-borda);
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .input-section {
+        flex-direction: column;
+    }
+
+    .btn-adicionar {
+        width: 100%;
+    }
+}
